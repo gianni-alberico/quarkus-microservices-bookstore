@@ -31,7 +31,7 @@ public class BookResource {
     @Inject
     org.jboss.logging.Logger logger;
 
-    @Retry(delay = 3000)
+    @Retry(delay = 1000, maxRetries = 2)
     @Fallback(fallbackMethod = "fallbackOnCreatingABook")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
