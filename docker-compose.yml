@@ -1,0 +1,21 @@
+services:
+  rest-number:
+    build:
+      context: rest-number
+      dockerfile: src/main/docker/Dockerfile.native
+    ports:
+      - "8001:8701"
+    networks:
+      - microservices
+  rest-book:
+    build:
+      context: rest-book
+      dockerfile: src/main/docker/Dockerfile.native
+    ports:
+      - "8000:8702"
+    networks:
+      - microservices
+
+networks:
+  microservices:
+    driver: bridge
